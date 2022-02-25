@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>adminly_dashboard</id>
+    <name>Dashboard</name>
+    <summary><![CDATA[Adminly Dashboard]]></summary>
+    <description><![CDATA[Adminly Dashboard]]></description>
+    <version>0.1.0</version>
+    <licence>agpl</licence>
+    <author>MetaProvide</author>
+    <namespace>Adminly_Dashboard</namespace>
+    <category></category>
+    <website>https://github.com/metaprovide/adminly_dashboard</website>
+    <bugs>https://github.com/metaprovide/adminly_dashboard</bugs>
+    <dependencies>
+        <nextcloud min-version="23" max-version="23"/>
+    </dependencies>
+</info>
