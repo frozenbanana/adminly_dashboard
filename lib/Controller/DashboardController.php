@@ -29,8 +29,10 @@ declare(strict_types=1);
 namespace OCA\Adminly_Dashboard\Controller;
 
 use OCP\IRequest;
+use OCA\Adminly_Dashboard\AppInfo\Application;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Controller;
+use OCP\Util;
 
 class DashboardController extends Controller {
 
@@ -39,11 +41,14 @@ class DashboardController extends Controller {
 	}
 
 	/**
-	 * @NoAdminRequired
+	* @NoAdminRequired
 	* @NoCSRFRequired
+	*
+	* Render default template
 	*/
 	public function index() {
-		return new TemplateResponse('adminly_dashboard', 'dashboard');
+		Util::addScript(Application::APP_ID, 'adminly_dashboard-main');
+		return new TemplateResponse('adminly_dashboard', 'main');
 	}
 
 }

@@ -15,4 +15,13 @@
     <dependencies>
         <nextcloud min-version="23" max-version="23"/>
     </dependencies>
+    <navigations>
+      <navigation>
+        <name>Dashboard</name>
+        <route>adminly_dashboard.dashboard.index</route>
+        <icon>dashboard.svg</icon>
+        <order>-1</order>
+      </navigation>
+	</navigations>
+
 </info>
