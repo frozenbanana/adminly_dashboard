@@ -1,8 +1,8 @@
 .env
 .idea
 *.iml
-/vendor/
-/build/
+vendor/
+build/
 node_modules/
-/.php_cs.cache
-js/*hot-update.*
+.php_cs.cache
+js/

@@ -2,7 +2,7 @@
 	<main>
 		<div class="greeting-card">
 			<h1>{{ message }}</h1>
-			<p>It's good to see you again</p>
+			<p>It's good to see you again!</p>
 		</div>
 
 		<div class="calendar-widget centered large-text">
@@ -22,7 +22,7 @@ export default {
 	name: 'App',
 	data() {
 		return {
-			message: 'Hello Quinn!',
+			message: 'Hello Joao!',
 		};
 	},
 };

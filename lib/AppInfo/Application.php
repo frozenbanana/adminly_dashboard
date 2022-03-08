@@ -33,14 +33,15 @@ use OCP\AppFramework\App;
 class Application extends App
 {
     /** @var string */
-    public const APP_ID = 'adminly_dashboard';
+    public const APP_NAME = 'adminly_dashboard';
 
     /** @var string */
     protected $appName;
 
     public function __construct()
     {
-        parent::__construct(self::APP_ID);
+        parent::__construct(self::APP_NAME);
+		$this->appName = self::APP_NAME;
     }
 
 }
