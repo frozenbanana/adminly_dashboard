@@ -29,13 +29,9 @@ declare(strict_types=1);
 namespace OCA\Adminly_Dashboard\AppInfo;
 
 use OCP\AppFramework\App;
-use OCP\AppFramework\Bootstrap\IBootContext;
-use OCP\AppFramework\Bootstrap\IBootstrap;
-use OCP\AppFramework\Bootstrap\IRegistrationContext;
 
-class Application extends App implements IBootstrap
+class Application extends App
 {
-
     /** @var string */
     public const APP_NAME = 'adminly_dashboard';
 
@@ -45,14 +41,7 @@ class Application extends App implements IBootstrap
     public function __construct()
     {
         parent::__construct(self::APP_NAME);
-        $this->appName  = self::APP_NAME;
+		$this->appName = self::APP_NAME;
     }
 
-    public function register(IRegistrationContext $context): void
-    {
-    }
-
-    public function boot(IBootContext $context): void
-    {
-    }
 }
