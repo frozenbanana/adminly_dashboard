@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Install dependencies
+      run: make dev-setup
+      
+    - name: Lint
+      run: make lint
+      
+    - name: Build javascript bundle
+      run: make build-js-production
+      
+    - name: Run tests
+      run: make test
