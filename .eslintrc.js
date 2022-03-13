@@ -1,8 +1,6 @@
 module.exports = {
-	extends: [
-		'@nextcloud',
-	],
-    "rules": {
-        "semi": [2, "always"]
-    }
-}
+	extends: ["@nextcloud"],
+	rules: {
+		semi: [2, "always"],
+	},
+};
