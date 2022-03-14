@@ -1,12 +1,11 @@
 name: Deploy Prerelease
 on:
   workflow_run:
-    workflows: ["Prerelease"]
+    workflows: [Prerelease]
     types: [completed]
 
 jobs:
   deploy:
-    needs: preprelease
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
