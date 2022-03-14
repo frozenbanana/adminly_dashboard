@@ -1,0 +1,23 @@
+name: Deploy Prerelease
+on:
+  workflow_run:
+    workflows: ["Prerelease"]
+    types: [completed]
+
+jobs:
+  deploy:
+    needs: preprelease
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_STAGING_PRIVATE_KEY }}
+          known_hosts: "just-a-placeholder-so-we-dont-get-errors"
+
+      - name: Adding Known Hosts
+        run: echo ${{ secrets.SSH_STAGING_HOST_FINGERPRINT }} >> ~/.ssh/known_hosts
+
+      - name: Deploy using server side script
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_STAGING_HOST }} "sudo ./deploy-prerelease-adminly_dashboard.sh"
