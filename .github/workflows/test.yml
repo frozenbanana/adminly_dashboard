@@ -2,30 +2,29 @@ name: Test
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: "shivammathur/setup-php@v2"
-      with:
-        php-version: "7.4"
-        tools: composer
-      
-    - name: Install dependencies
-      run: make dev-setup
-      
-    - name: Lint
-      run: make lint
-      
-    - name: Build javascript bundle
-      run: make build-js-production
-      
-    - name: Run tests
-      run: make test
+      - uses: actions/checkout@v2
+      - uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: "8.0"
+          tools: composer
+
+      - name: Install dependencies
+        run: make dev-setup
+
+      - name: Lint
+        run: make lint
+
+      - name: Build javascript bundle
+        run: make build-js-production
+
+      - name: Run tests
+        run: make test
