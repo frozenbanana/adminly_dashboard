@@ -1,5 +1,7 @@
 name: Deploy Prerelease
-on: [prereleased]
+on:
+  release:
+    types: [prereleased]
 
 jobs:
   deploy:
