@@ -19,15 +19,15 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-import { generateFilePath } from "@nextcloud/router";
+import { generateFilePath } from '@nextcloud/router';
 
-import Vue from "vue";
-import App from "./App";
+import Vue from 'vue';
+import App from './App';
 
 // eslint-disable-next-line
 __webpack_public_path__ = generateFilePath("adminly_dashboard", "", "js/");
 
 export default new Vue({
-	el: "#app",
+	el: '#app',
 	render: (h) => h(App),
 });
