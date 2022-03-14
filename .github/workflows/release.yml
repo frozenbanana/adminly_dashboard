@@ -1,14 +1,14 @@
-name: Release
+name: Prerelease
 
 on:
   release:
-    types: [released, prereleased]
+    types: [prereleased]
 
 env:
   APP_NAME: adminly_dashboard
 
 jobs:
-  release:
+  prerelease:
     runs-on: ubuntu-latest
 
     steps:
