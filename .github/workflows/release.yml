@@ -33,7 +33,6 @@ jobs:
 
     - name: Upload tarball to release
       uses: svenstaro/upload-release-action@v2
-        id: attach_to_release
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ env.APP_NAME }}/build/${{ env.APP_NAME }}.tar.gz
