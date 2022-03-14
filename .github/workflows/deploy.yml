@@ -15,7 +15,7 @@ jobs:
           known_hosts: "just-a-placeholder-so-we-dont-get-errors"
 
       - name: Adding Known Hosts
-        run: echo ${{ secrets.SSH_STAGING_HOST }} >> ~/.ssh/known_hosts
+        run: echo ${{ secrets.SSH_STAGING_HOST_FINGERPRINT }} >> ~/.ssh/known_hosts
 
       - name: Deploy using server side script
         run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_STAGING_HOST }} "sudo ./deploy-prerelease.sh"
