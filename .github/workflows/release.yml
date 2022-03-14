@@ -2,41 +2,40 @@ name: Release
 
 on:
   release:
-    branches: [ main ] # Release should trigger on tag
+    branches: [main] # Release should trigger on tag
 
 env:
   APP_NAME: adminly_dashboard
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: "shivammathur/setup-php@v2"
-      with:
-        php-version: "7.4"
-        tools: composer
-
-    - name: Install dependencies
-      run: make dev-setup
-
-    - name: Lint
-      run: make lint
-
-    - name: Build javascript bundle
-      run: make build-js-production
-
-    - name: Run tests
-      run: make test
-
-    - name: Upload tarball to release
-      uses: svenstaro/upload-release-action@v2
+      - uses: actions/checkout@v2
+      - uses: "shivammathur/setup-php@v2"
         with:
+          php-version: "7.4"
+          tools: composer
+
+      - name: Install dependencies
+        run: make dev-setup
+
+      - name: Lint
+        run: make lint
+
+      - name: Build javascript bundle
+        run: make build-js-production
+
+      - name: Run tests
+        run: make test
+
+      - name: Upload tarball to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          id: attach_to_release
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ env.APP_NAME }}/build/${{ env.APP_NAME }}.tar.gz
           asset_name: ${{ env.APP_NAME }}.tar.gz
           tag: ${{ github.ref }}
           overwrite: true
-
